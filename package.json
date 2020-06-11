@@ -1,0 +1,62 @@
+{
+	"name": "RKfrontstarterkit",
+	"version": "1.1.0",
+	"description": "A starter project for Front-End Development | RKfrontstarterkit",
+	"main": "gulpfile.js",
+	"scripts": {
+		"setup": "npm install && gulp clean:www && gulp build && gulp setupLog",
+		"start": "gulp",
+		"clean": "gulp clean:www",
+		"build": "gulp clean:www && gulp build"
+	},
+	"devDependencies": {
+		"@babel/core": "7.4.0",
+		"@babel/preset-env": "7.4.2",
+		"babelify": "10.0.0",
+		"browser-sync": "2.26.3",
+		"browserify": "16.2.3",
+		"del": "4.0.0",
+		"gulp": "3.9.1",
+		"gulp-autoprefixer": "6.0.0",
+		"gulp-babel": "8.0.0",
+		"gulp-cached": "1.1.1",
+		"gulp-changed": "3.2.0",
+		"gulp-concat": "2.6.1",
+		"gulp-filter": "5.1.0",
+		"gulp-if": "2.0.2",
+		"gulp-minify": "3.1.0",
+		"gulp-notify": "3.2.0",
+		"gulp-plumber": "1.2.1",
+		"gulp-pug": "4.0.1",
+		"gulp-pug-inheritance": "0.2.1",
+		"gulp-sourcemaps": "2.6.5",
+		"gulp-util": "3.0.8",
+		"gulp-wait": "0.0.2",
+		"gulp-watch": "5.0.1",
+		"vinyl-buffer": "1.0.1",
+		"vinyl-source-stream": "2.0.0",
+		"watchify": "3.11.1"
+	},
+	"engines": {
+		"node": "8.0.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/RadKod/RKfrontstarterkit.git"
+	},
+	"keywords": [
+		"gulp",
+		"pug",
+		"browsersync",
+		"browserify",
+		"babel",
+		"es6"
+	],
+	"author": "Selim Doyranlı",
+	"contributors": [
+		"Selim Doyranlı <selim@radkod.com> (https://selimdoyranli.com)"
+	],
+	"bugs": "selim@radkod.com",
+	"homepage": "https://www.radkod.com",
+	"license": "MIT"
+}

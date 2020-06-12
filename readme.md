@@ -8,6 +8,7 @@ Starter kit for [A-Frame](https://aframe.io) + [AR.js](https://github.com/AR-js-
 ![aframe-arjs](https://s7.gifyu.com/images/previewfc5f1969499f145a.gif)
 
 ✨ **Online Demo**
+
 [https://aframe-arjs-boilerplate.surge.sh](https://aframe-arjs-boilerplate.surge.sh) (Allow camera access and use https)
 
 Project structure: Based from [RKfrontstarterkit](https://github.com/RadKod/RKfrontstarterkit).

@@ -5,7 +5,7 @@
 Starter kit for [A-Frame](https://aframe.io) + [AR.js](https://github.com/AR-js-org/AR.js)
 
 
-![aframe-arjs](https://raw.githubusercontent.com/RadKod/aframe-arjs-boilerplate/master/preview/preview.gif?token=AFNDWA3QL5KE2GERSNYVYGK64OX4Q)
+![aframe-arjs](https://s7.gifyu.com/images/previewfc5f1969499f145a.gif)
 
 **Online Demo**
 [https://aframe-arjs-boilerplate.surge.sh](https://aframe-arjs-boilerplate.surge.sh) (Allow camera access and use https)

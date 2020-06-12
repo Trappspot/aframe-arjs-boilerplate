@@ -1,5 +1,9 @@
-a-scene(stats embedded arjs='trackingMethod: best;')
+// Scene
+a-scene(stats vr-mode-ui='enabled: false;' renderer='logarithmicDepthBuffer: true;' embedded='' arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;')
 	a-marker(preset='hiro')
-		a-box(position='0 3 0' material='color: #012353;')
+		a-entity.my-custom-entity(geometry='primitive: box; width: 1; height: 1; depth: 1;' position='0 2 0' animation='property: rotation; to: 0 360 0; dur: 2000; easing: linear; loop: true' material='src: public/img/texture/metal.jpg; repeat: 1 1; opacity: 0.9;')
 		include ../partials/banner.pug
 	a-entity(camera='')
+
+// Switcher
+include ../partials/switcher.pug

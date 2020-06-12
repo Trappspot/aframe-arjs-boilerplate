@@ -2,3 +2,25 @@ body {
 	margin: 0;
 	overflow: hidden;
 }
+
+.switcher {
+	position: fixed;
+	display: flex;
+	z-index: 999;
+	bottom: 25px;
+	right: 25px;
+}
+
+.switcher button {
+	position: relative;
+	display: inline-block;
+	padding: 10px 25px;
+	margin-left: 10px;
+	background-color: #fff;
+	color: #666;
+	font-size: 1.2em;
+	border: 0;
+	border-radius: 10px;
+	outline: none;
+	cursor: pointer;
+}

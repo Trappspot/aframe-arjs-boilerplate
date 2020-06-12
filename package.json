@@ -5,7 +5,7 @@
 	"main": "gulpfile.js",
 	"scripts": {
 		"setup": "npm install && gulp clean:www && gulp build && gulp setupLog",
-		"start": "gulp",
+		"dev": "gulp",
 		"clean": "gulp clean:www",
 		"build": "gulp clean:www && gulp build"
 	},

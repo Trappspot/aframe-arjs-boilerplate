@@ -1,1 +1,3 @@
-console.log("OK");
+console.log("APP.JS INIT");
+
+import "./switcher";

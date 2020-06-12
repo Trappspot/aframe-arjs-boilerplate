@@ -1,7 +1,7 @@
 {
-	"name": "RKfrontstarterkit",
-	"version": "1.1.0",
-	"description": "A starter project for Front-End Development | RKfrontstarterkit",
+	"name": "aframe-arjs-boilerplate",
+	"version": "1.0.0",
+	"description": "Create an augmented reality application for the web.",
 	"main": "gulpfile.js",
 	"scripts": {
 		"setup": "npm install && gulp clean:www && gulp build && gulp setupLog",
@@ -42,21 +42,19 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/RadKod/RKfrontstarterkit.git"
+		"url": "https://github.com/RadKod/aframe-arjs-boilerplate"
 	},
 	"keywords": [
-		"gulp",
-		"pug",
-		"browsersync",
-		"browserify",
-		"babel",
-		"es6"
+		"aframe",
+		"arjs",
+		"aframe-arjs-boilerplate",
+		"RadKod"
 	],
 	"author": "Selim Doyranlı",
 	"contributors": [
 		"Selim Doyranlı <selim@radkod.com> (https://selimdoyranli.com)"
 	],
 	"bugs": "selim@radkod.com",
-	"homepage": "https://www.radkod.com",
+	"homepage": "https://aframe-arjs-boilerplate.surge.sh",
 	"license": "MIT"
 }

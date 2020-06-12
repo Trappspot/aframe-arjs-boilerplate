@@ -1,47 +1,35 @@
+# aframe-arjs-boilerplate
 
-#  RKfrontstarterkit
+> 🥽 Create an augmented reality application for the web.
 
-&nbsp;
-##### POWERED BY
-[![N|Solid](https://i.ibb.co/q5G6N0n/radkod-mail-imza.png)](https://www.radkod.com)
+Starter kit for [A-Frame](https://aframe.io) + [AR.js](https://github.com/AR-js-org/AR.js)
 
-#### Front-End Development Starter Kit Used By RadKod Freelance Team.
-  
-  * ##### Gulp 3
-  * ##### Pug
 
-  * ##### Sass (.scss)
-    * ###### General Class Management
-    * ###### Extra Class Management
-    * ###### Icon - Fonts Management
-    * ###### Browser Hack
-  * ##### Babel 8
-  * ##### Browserify
-  * ##### ES6
-  * ##### Browser Sync (Live Reload)
-  * ##### Bootstrap 4
-  * ##### Animate.css
-  * ##### Lazy Load Image
-  * ##### Wow.js animated elements
-  * ##### Swiper
-  * ##### Trunk8 (cut text)
-  * ##### Fastclick
-  * ##### Material Icons (zmdi)
-  * ##### Font Awesome 4.7
-  * ##### Ion Icons v2
-  * ######  demo image assets
-    &nbsp;
-_________________________________________ 
+![aframe-arjs](https://raw.githubusercontent.com/RadKod/aframe-arjs-boilerplate/master/preview/preview.gif?token=AFNDWA3QL5KE2GERSNYVYGK64OX4Q)
 
-## Installation
+**Online Demo**
+[https://aframe-arjs-boilerplate.surge.sh](https://aframe-arjs-boilerplate.surge.sh) (Allow camera access and use https)
+
+Project structure: Based from [RKfrontstarterkit](https://github.com/RadKod/RKfrontstarterkit).
+
+ - A-Frame
+ - AR.js
+ - Pug
+ - Babel 8
+ - Browserify
+ - ES6
+ - Gulp 3
+ 
+ ## Installation
 
 Git clone.
 
 ```sh
-$ git clone https://github.com/RadKod/RKfrontstarterkit.git
+$ git clone https://github.com/RadKod/aframe-arjs-boilerplate.git
 ```
 &nbsp;
-> RKfrontstarterkit requires [Node.js](https://nodejs.org/) (recommend v8 or higher) + npm + gulp (for development mode.) to run.
+>   
+aframe-arjs-boilerplate requires [Node.js](https://nodejs.org/) (recommend v8 or higher) + npm + gulp (for development mode.) to run.
 
 
 Install the package.json and start the server.
@@ -50,7 +38,7 @@ Install the package.json and start the server.
 $ cd RKfrontstarterkit
 $ npm install gulp-cli -g
 $ npm run setup
-$ npm run start (# Just type this to run it again later.#)
+$ npm run dev (# Just type this to run it again later.#)
 ```
 
 Verify the deployment by navigating to your server address in your preferred browser. (:3000 default port for browser-sync)
@@ -64,7 +52,7 @@ localhost:3000
 ### START/DEV
 
 ```sh
-$ npm run start
+$ npm run dev
 ```
 
 ### CLEAN
@@ -78,6 +66,17 @@ $ npm run clean
 ```sh
 $ npm run build
 ```
+## Author
 
-###### LICENSE : MIT
+👤 **selimdoyranli**
 
+* Website: [@selimdoyranli](https://selimdoyranli.com)
+* Github: [@selimdoyranli](https://github.com/selimdoyranli)
+* LinkedIn: [@selimdoyranli](https://linkedin.com/in/selimdoyranli)
+* Team: [@RadKod](https://radkod.com)
+
+___
+
+CREATED BY
+
+ [![RadKod](https://i.ibb.co/q5G6N0n/radkod-mail-imza.png)](https://www.radkod.com)

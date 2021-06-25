@@ -5,7 +5,7 @@
 Starter kit for [A-Frame](https://aframe.io) + [AR.js](https://github.com/AR-js-org/AR.js)
 
 
-![aframe-arjs](https://s7.gifyu.com/images/previewfc5f1969499f145a.gif)
+![aframe-arjs](https://raw.githubusercontent.com/RadKod/aframe-arjs-boilerplate/master/preview/preview.gif)
 
 ✨ **Online Demo**
 

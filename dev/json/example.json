@@ -1,4 +1,311 @@
-{
+// Initialize Bluetooth adapter
+BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+
+// Get Bluetooth device
+BluetoothDevice device = bluetoothAdapter.getRemoteDevice("00:00:00:00:00:00");
+
+// Get Bluetooth socket
+BluetoothSocket socket = device.createRfcommSocketToServiceRecord(UUID.fromString("00001101-0000-1000-8000-00805F9B34FB"));
+
+// Connect to the device
+socket.connect();
+
+// Get output stream
+OutputStream outputStream = socket.getOutputStream();
+
+// Send data
+String data = "Hello, world!";
+outputStream.write(data.getBytes());
+Button sendButton = findViewById(R.id.send_button);
+Button receiveButton = findViewById(R.id.receive_button);
+// Initialize Bluetooth adapter
+BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+
+// Create Bluetooth server socket
+BluetoothServerSocket serverSocket = bluetoothAdapter.listenUsingRfcommWithServiceRecord("BluetoothExample", UUID.fromString("00001101-0000-1000-8000-00805F9B34FB"));
+
+// Accept incoming connections
+BluetoothSocket socket = serverSocket.accept();
+
+// Get input stream
+InputStream inputStream = socket.getInputStream();
+
+// Read data
+byte[] buffer = new byte[1024];
+int bytes;
+StringBuilder stringBuilder = new StringBuilder();
+while ((bytes = inputStream.read(buffer)) != -1) {
+    stringBuilder.append(new String(buffer, 0, bytes));
+}from scapy.layers.bluetooth import *
+
+def handle_packet(packet):
+    if packet.haslayer(BTLE):
+        # Do something with the packet
+        print(packet.summary())
+
+sniff(iface='hci0', prn=handle_packet)
+
+
+// Display data
+String receivedData = stringBuilder.toString();
+Toast.makeText(this, receivedData, Toast.LENGTH_SHORT).show();
+
+sendButton.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        // Call transmitter code here
+    }// Initialize Bluetooth adapter
+BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+
+// Create Bluetooth server socket
+BluetoothServerSocket serverSocket = bluetoothAdapter.listenUsingRfcommWithServiceRecord("BluetoothExample", UUID.fromString("00001101-0000-1000-8000-00805F9B34FB"));
+
+// Accept incoming connections
+BluetoothSocket socket = serverSocket.accept();
+
+// Get input stream
+InputStream inputStream = socket.getInputStream();
+
+// Read data
+byte[] buffer = new byte[1024];
+int bytes;
+StringBuilder stringBuilder = new StringBuilder();
+while ((bytes = inputStream.read(buffer)) != -1) {
+    stringBuilder.append(new String(buffer, 0, bytes));
+}// Initialize Bluetooth adapter
+BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+
+// Get Bluetooth device
+BluetoothDevice device = bluetoothAdapter.getRemoteDevice("00:00:00:00:00:00");
+
+// Get Bluetooth socket
+BluetoothSocket socket = device.createRfcommSocketToServiceRecord(UUID.fromString("00001101-0000-1000-8000-00805F9B34FB"));
+
+// Connect to the device
+socket.connect();
+
+// Get output stream
+OutputStream outputStream = socket.getOutputStream();
+
+// Send data
+String data = "Hello, world!";
+outputStream.write(data.getBytes());
+
+
+// Display data
+String receivedData = stringBuilder.toString();
+Toast.makeText(this, receivedData, Toast.LENGTH_SHORT).show();
+
+});
+
+receiveButton.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        // Call receiver code here
+    BluetoothAdapter bluetoothAdapter =
+
+});
+CoreBluetooth
+
+let serviceUUID = CBUUID(string: "00001101-0000-1000-8000-00805F9B34FB")
+let characteristicUUID = CBUUID(string: "00001102-0000-1000-8000-00805F9B34FB")
+
+class ViewController: UIViewController, CBPeripheralManagerDelegate {
+    
+    var peripheralManager: CBPeripheralManager?
+    var transferCharacteristic: CBMutableCharacteristic?
+    var sendDataIndex: Int?
+    var sendData: Data?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Initialize peripheral manager
+        peripheralManager = CBPeripheralManager(delegate: self, queue: nil)
+    }
+    
+    func peripheralManagerDidUpdateState(_ peripheral: CBPeripheralManager) {
+        if peripheral.state == .poweredOn {
+            // Create transfer characteristic
+            transferCharacteristic = CBMutableCharacteristic(type: characteristicUUID, properties: .notify, value: nil, permissions: .readable)
+            
+            // Create transfer service
+            let transferService = CBMutableService(type: serviceUUID, primary: true)
+            transferService.characteristics = [transferCharacteristic!]
+            
+            // Add transfer service to peripheral manager
+            peripheralManager?.add(transferService)
+        }
+    }
+    
+    func peripheralManager(_ peripheral: CBPeripheralManager, central: CBCentral, didSubscribeTo characteristic: CBCharacteristic) {
+        sendDataIndex = 0
+        sendData = "Hello, world!".data(using: .utf8)
+        sendData()
+    }
+    
+    func sendData() {
+        guard let transferCharacteristic = transferCharacteristic, let peripheralManager = peripheralManager, let sendData = sendData else { return }
+        
+        var didSend = true
+        while didSend {
+            let amountToSend = sendData.count - sendDataIndex!
+            var chunkSize = peripheralManager.maximumUpdateValueLength
+            if chunkSize > amountToSend {
+                chunkSize = amountToSend
+            }
+            let chunk = sendData.subdata(in: sendDataIndex! ..< sendDataIndex! + chunkSize)
+            didSend = peripheralManager.updateValue(chunk, for: transferCharacteristic, onSubscribedCentrals: nil)
+            if !didSend {
+                return
+            }
+            sendDataIndex! += chunkSize
+            if sendDataIndex! >= sendData.count {
+                sendDataIndex = nil
+                sendData = nil
+                return
+            }
+        }
+    }
+    
+}
+ UIKitimport CoreBluetooth
+
+let serviceUUID = CBUUID(string: "00001101-0000-1000-8000-00805F9B34FB")
+let characteristicUUID = CBUUID(string: "00001102-0000-1000-8000-00805F9B34FB")
+
+class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDelegate {
+    
+    var centralManager: CBCentralManager?
+    var discoveredPeripheral: CBPeripheral?
+    var transferCharacteristic: CBCharacteristic?
+    var data: NSMutableData?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Initialize central manager
+        centralManager = CBCentralManager(delegate: self, queue: nil)
+    }
+    
+    func centralManagerDidUpdateState(_ central: CBCentralManager) {
+        if central.state == .poweredOn {
+            // Scan for peripherals with transfer service
+            centralManager?.scanForPeripherals(withServices: [serviceUUID], options: nil)
+        }
+    }
+    
+    func centralManager(_ central
+
+import CoreBluetooth
+
+class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDelegate {
+
+    var centralManager: CBCentralManager!
+    var peripheral: CBPeripheral!
+
+    var characteristic: CBCharacteristic?
+
+    @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var receiveButton: UIButton!
+    @IBOutlet weak var repeatButton: UIButton!
+
+    var lastReceivedData: Data?
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Initialize central manager with delegate
+        centralManager = CBCentralManager(delegate: self, queue: nil)
+    }
+
+    // Start scanning for devices when view appears
+    override func viewDidAppear(_ animated: Bool) {
+        scanForDevices()
+    }
+
+    // Scan for devices with service UUID
+    func scanForDevices() {
+        let serviceUUIDs: [CBUUID] = [CBUUID(string: "YOUR_SERVICE_UUID")]
+        centralManager.scanForPeripherals(withServices: serviceUUIDs, options: nil)
+        statusLabel.text = "Scanning for devices..."
+    }
+
+    // Stop scanning when view disappears
+    override func viewDidDisappear(_ animated: Bool) {
+        centralManager.stopScan()
+    }
+
+    // Connect to selected peripheral
+    func connect(to peripheral: CBPeripheral) {
+        centralManager.stopScan()
+        self.peripheral = peripheral
+        peripheral.delegate = self
+        centralManager.connect(peripheral)
+        statusLabel.text = "Connecting to device..."
+    }
+
+    // Discover services on connected peripheral
+    func discoverServices(on peripheral: CBPeripheral) {
+        peripheral.discoverServices(nil)
+        statusLabel.text = "Discovering services..."
+    }
+
+    // Discover characteristics for service
+    func discoverCharacteristics(for service: CBService) {
+        peripheral.discoverCharacteristics(nil, for: service)
+        statusLabel.text = "Discovering characteristics..."
+    }
+
+    // Send data over characteristic
+    func sendData(data: Data) {
+        if let characteristic = characteristic {
+            peripheral.writeValue(data, for: characteristic, type: .withResponse)
+            statusLabel.text = "Sent data: \(data.hexEncodedString())"
+        }
+    }
+
+    // Handle button press to receive data
+    @IBAction func receiveButtonPressed(_ sender: UIButton) {
+        if let characteristic = characteristic {
+            peripheral.readValue(for: characteristic)
+            statusLabel.text = "Receiving data..."
+        }
+    }
+
+    // Handle button press to repeat last received data
+    @IBAction func repeatButtonPressed(_ sender: UIButton) {
+        if let lastReceivedData = lastReceivedData {
+            sendData(data: lastReceivedData)
+            statusLabel.text = "Repeating last received data: \(lastReceivedData.hexEncodedString())"
+        }
+    }
+
+    // MARK: - CBCentralManagerDelegate methods
+
+    func centralManagerDidUpdateState(_ central: CBCentralManager) {
+        if central.state == .poweredOn {
+            scanForDevices()
+        } else {
+            statusLabel.text = "Bluetooth is not turned on."
+        }
+    }
+
+    func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
+        connect(to: peripheral)
+    }
+
+    func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
+        discoverServices(on: peripheral)
+    }
+
+    func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
+        if let service = peripheral.services?.first {
+            discoverCharacteristics(for: service)
+        }
+    }
+
+    func peripheral(_ peripheral: CBPeripheral, didDiscover
+
   "https://www.radkod.com": null
 import CoreBluetooth
 
